@@ -327,7 +327,7 @@ def main() -> None:
                     choices=["streamable-http", "stdio"],
                     help="streamable-http voor Retell (remote), stdio voor lokaal testen.")
     args = ap.parse_args()
-    transport = "http" if args.transport == "streamable-http" else "stdio"
+    transport = "streamable-http" if args.transport == "streamable-http" else "stdio"
     mcp.run(transport=transport)
 
 
