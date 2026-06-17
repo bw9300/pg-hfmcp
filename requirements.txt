@@ -1,0 +1,4 @@
+mcp[cli]>=1.2.0
+httpx>=0.27
+asgiref>=3.7
+uvicorn>=0.29
