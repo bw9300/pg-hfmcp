@@ -30,7 +30,7 @@ BASE = "https://public.salonhub.nl/v2/api"
 CLIENT = os.environ.get("SALONHUB_CLIENT", "hairfix")
 SALON = os.environ.get("SALONHUB_SALON", "burgreigerst")
 HOST = os.environ.get("MCP_HOST", "0.0.0.0")
-PORT = int(os.environ.get("MCP_PORT", "8000"))
+PORT = int(os.environ.get("PORT", os.environ.get("MCP_PORT", "8000")))
 
 _HEADERS = {
     "X-Requested-With": "XMLHttpRequest",
@@ -327,7 +327,7 @@ def main() -> None:
                     choices=["streamable-http", "stdio"],
                     help="streamable-http voor Retell (remote), stdio voor lokaal testen.")
     args = ap.parse_args()
-    transport = "streamable_http" if args.transport == "streamable-http" else "stdio"
+    transport = "http" if args.transport == "streamable-http" else "stdio"
     mcp.run(transport=transport)
 
 
